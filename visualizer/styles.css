@@ -7,6 +7,8 @@
   border-radius: 8px;
   background: #fafafa;
   font-family: sans-serif;
+
+  max-width: 35%;
 }
 
 .config-row label {
@@ -24,4 +26,16 @@
 button:disabled {
   opacity: 0.5;
   cursor: not-allowed;
+}
+
+.overall-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+#run {
+    max-width: 25%;
+    align-self: center;
 }

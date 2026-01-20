@@ -1,6 +1,7 @@
 import requests
 import re
 from bs4 import BeautifulSoup
+from stop_words import STOP_WORDS
 
 
 def fetch_html(url: str, timeout: int = 10) -> str:
@@ -13,7 +14,7 @@ def fetch_html(url: str, timeout: int = 10) -> str:
 
 # relies on the BeautifulSoup library to prune extraneous tags (JS, CSS, etc)
 # and extract visible text within certain tags.
-def remove_noise(html: str) -> str:
+def remove_noise(html: str) -> list[str]:
     soup = BeautifulSoup(html, "html.parser")
     for tag in soup(
         [
@@ -52,15 +53,25 @@ def remove_noise(html: str) -> str:
         if text and len(text) > 12:
             text_blocks.append(text)
 
+    # remove punctuation and normalize words into a list of otkens
     cleaned_blocks = []
     for block in text_blocks:
         block = block.lower()
+        block = re.sub(r"[^a-z0-9\s]", " ", block)
         block = re.sub(r"\s+", " ", block).strip()
-        cleaned_blocks.append(block)
+        for blok in block.split(" "):
+            cleaned_blocks.append(blok)
 
-    return str.join(", ", cleaned_blocks)
+    return cleaned_blocks
 
 
-if __name__ == "__main__":
-    res = fetch_html("https://funnyfuzzy.com")
-    print(remove_noise(res))
+def tokenize_text(texts: list[str]) -> dict[str, int]:
+    d = {}
+    for text in texts:
+        if text not in STOP_WORDS and len(text) > 2:
+            if text not in d:
+                d[text] = 1
+            else:
+                d[text] += 1
+
+    return d

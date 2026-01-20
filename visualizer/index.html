@@ -7,27 +7,29 @@
 </head>
 
 <body>
-    <div class="config-menu">
-        <h3>Keyword Settings</h3>
+    <div class="overall-menu">
+        <div class="config-menu">
+            <h3>Keyword Settings</h3>
 
-        <div class="config-row">
-            <label>
-                Keyword threshold:
-                <input type="number" step="0.05" id="threshold">
-            </label>
-        </div>
+            <div class="config-row">
+                <label>
+                    Keyword threshold: (tokens will be pruned if they appear in this percentage of sites)
+                    <input type="number" step="0.05" id="threshold">
+                </label>
+            </div>
 
-        <div class="config-row">
-            <label>
-                Max keywords:
-                <input type="number" id="maxKeywords">
-            </label>
-        </div>
+            <div class="config-row">
+                <label>
+                    Max keywords (how many keywords to display after a product's type):
+                    <input type="number" id="maxKeywords">
+                </label>
+            </div>
 
-        <div class="config-actions">
-            <button id="saveConfigBtn" disabled>Save changes</button>
-            <button id="run">Run pipeline</button>
+            <div class="config-actions">
+                <button id="saveConfigBtn" disabled>Save changes</button>
+            </div>
         </div>
+        <button id="run">Run</button>
     </div>
     <h2>Results</h2>
     <table id="table"></table>

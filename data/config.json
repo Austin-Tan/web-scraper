@@ -1,4 +1,4 @@
 {
-  "keyword_threshold": 0.75,
-  "max_keywords": 23
+  "keyword_threshold": 0.5,
+  "max_keywords": 8
 }
