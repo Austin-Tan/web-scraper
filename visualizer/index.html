@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link href="styles.css" rel="stylesheet" type="text/css" media="screen" />
+</head>
+
+<body>
+    <div class="config-menu">
+        <h3>Keyword Settings</h3>
+
+        <div class="config-row">
+            <label>
+                Keyword threshold:
+                <input type="number" step="0.05" id="threshold">
+            </label>
+        </div>
+
+        <div class="config-row">
+            <label>
+                Max keywords:
+                <input type="number" id="maxKeywords">
+            </label>
+        </div>
+
+        <div class="config-actions">
+            <button id="saveConfigBtn" disabled>Save changes</button>
+            <button id="run">Run pipeline</button>
+        </div>
+    </div>
+    <h2>Results</h2>
+    <table id="table"></table>
+
+    <script src="main.js"></script>
+</body>
+
+</html>

@@ -44,6 +44,7 @@ def remove_noise(html: str) -> str:
             "li",
             "button",
             "a",
+            # TODO: spans can be optional
             "span",
         ]
     ):

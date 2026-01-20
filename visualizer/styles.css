@@ -1,0 +1,27 @@
+.config-menu {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: #fafafa;
+  font-family: sans-serif;
+}
+
+.config-row label {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.config-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
